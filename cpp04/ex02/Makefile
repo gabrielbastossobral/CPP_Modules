@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: gabastos <gabastos@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2025/05/14 14:22:53 by gabastos          #+#    #+#              #
+#    Updated: 2025/05/14 14:22:53 by gabastos         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME = Abstractexercise
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98 -MMD #-fsanitize=address,undefined
