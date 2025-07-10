@@ -37,25 +37,25 @@ static	int	detectTarget(std::string str)
 		|| str == "-inf" || str == "+inf" || str == "nan")
 		return (SPECIAL);
 	
-	int	index = (str[0] == '-'); // index = 1 si signe négatif, sinon 0
+	int	index = (str[0] == '-'); 
 	int	index_start = index;
 
-	if (!str[index]) // '-' contient rien après le -
+	if (!str[index]) 
 		return (CHAR);
 
-	if (str[index] == '0' && isdigit(str[index + 1])) // si un nombre qui commence avec un zéro (012)
+	if (str[index] == '0' && isdigit(str[index + 1])) 
 		return (INVALID);
 
 	while (isdigit(str[index]))
 		index++;
 		
-	if (!str[index]) // rien après les chiffres -> just un int
+	if (!str[index]) 
 		return (INT);
 	
-	if (index == index_start && !str[index + 1]) //pas bougé, just un char
+	if (index == index_start && !str[index + 1]) 
 	return (CHAR);
 
-	if (index == index_start || str[index] != '.') // ".", "a.2", "-.2"
+	if (index == index_start || str[index] != '.') 
 	return (INVALID);
 
 	index++;
@@ -63,16 +63,16 @@ static	int	detectTarget(std::string str)
 	while (isdigit(str[index]))
 		index++;
 
-	if (index_start == index) 	// "42."  "12.f"
+	if (index_start == index) 
 		return (INVALID);
 
-	if (!str[index]) 			// "42.0"
+	if (!str[index]) 
 		return (DOUBLE);
 
 	if (str[index] != 'f')
 		return (INVALID);
 
-	if (!str[index + 1])		// "42.0f"
+	if (!str[index + 1])
 		return (FLOAT);
 		
 	return (INVALID);	
