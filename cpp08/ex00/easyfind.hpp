@@ -1,9 +1,9 @@
 #ifndef EASYFINDD_HPP
 # define EASYFINDD_HPP
 
-#include <algorithm>
-#include <iterator>
-#include <stdexcept>
+# include <algorithm>
+# include <iterator>
+# include <stdexcept>
 
 template <typename T>
 typename T::iterator easyfind(T &container, int value)
