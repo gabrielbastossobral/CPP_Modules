@@ -13,3 +13,4 @@ typename T::iterator easyfind(T &container, int value)
 		throw std::runtime_error("Value not found in the container");
 	return number;
 }
+#endif
