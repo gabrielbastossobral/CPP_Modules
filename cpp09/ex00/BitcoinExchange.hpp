@@ -2,23 +2,31 @@
 # define BITCOINEXCHANGE_HPP
 
 # include <iostream>
-# include <string>
 # include <map>
+# include <string>
 # include <fstream>
 # include <sstream>
-# include <stdexcept>
-# include <ctime>
+# include <cctype>
 
-class BitcoinExchange {
-public:
-    BitcoinExchange();
-    ~BitcoinExchange();
+class BitcoinExchange
+{
+    private:
+        std::map<std::string, double> m_bitcoin_prices;
 
-    void loadData(const std::string& filename);
-    float getExchangeRate(const std::string& date) const;
+        void loadDatabase(const std::string& db_filename);
+        bool validateDate(const std::string& date);
+        bool isLeapYear(int year);
+        bool getExchangeRate(const std::string& date, double& rate);
+        std::string trim(const std::string& str);
+    
+    public:
+        BitcoinExchange();
+        BitcoinExchange(const BitcoinExchange &other);
+        BitcoinExchange &operator=(const BitcoinExchange &other);
+        ~BitcoinExchange();
 
-private:
-    std::map<std::string, float> exchangeRates;
+        void processInputFile(const std::string& input_filename);
+
 };
 
 #endif
